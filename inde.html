@@ -1,175 +1,52 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gestion des Outils</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <script>
-      function validateForm() {
-        const id = document.getElementById("id").value;
-        const type = document.getElementById("type").value;
-        const marque = document.getElementById("marque").value;
-        const modele = document.getElementById("modele").value;
-        const numSerie = document.getElementById("num_serie").value;
-        const dateAchat = document.getElementById("date_achat").value;
-        const etat = document.getElementById("etat").value;
-        const localisation = document.getElementById("localisation").value;
-
-        let isValid = true;
-
-        if (!id) {
-          document.getElementById("id-error").textContent = "Veuillez remplir l'identifiant unique.";
-          isValid = false;
-        } else {
-          document.getElementById("id-error").textContent = "";
-        }
-
-        if (!type) {
-          document.getElementById("type-error").textContent = "Veuillez sélectionner un type.";
-          isValid = false;
-        } else {
-          document.getElementById("type-error").textContent = "";
-        }
-
-        if (!marque) {
-          document.getElementById("marque-error").textContent = "Veuillez remplir la marque.";
-          isValid = false;
-        } else {
-          document.getElementById("marque-error").textContent = "";
-        }
-
-        if (!modele) {
-          document.getElementById("modele-error").textContent = "Veuillez remplir le modèle.";
-          isValid = false;
-        } else {
-          document.getElementById("modele-error").textContent = "";
-        }
-
-        if (!numSerie) {
-          document.getElementById("num_serie-error").textContent = "Veuillez remplir le numéro de série.";
-          isValid = false;
-        } else {
-          document.getElementById("num_serie-error").textContent = "";
-        }
-
-        if (!dateAchat) {
-          document.getElementById("date_achat-error").textContent = "Veuillez sélectionner la date d'achat.";
-          isValid = false;
-        } else {
-          document.getElementById("date_achat-error").textContent = "";
-        }
-
-        if (!etat) {
-          document.getElementById("etat-error").textContent = "Veuillez sélectionner l'état.";
-          isValid = false;
-        } else {
-          document.getElementById("etat-error").textContent = "";
-        }
-
-        if (!localisation) {
-          document.getElementById("localisation-error").textContent = "Veuillez remplir la localisation actuelle.";
-          isValid = false;
-        } else {
-          document.getElementById("localisation-error").textContent = "";
-        }
-
-        return isValid;
-      }
-    </script>
-  </head>
-
-  <body class="bg-dark text-white" style="padding: 20px;">
-    <div class="container">
-      <h1 class="text-center mb-4">Gestion des Outils</h1>
-      
-      <fieldset class="border p-4 mb-4">
-        <legend class="w-auto">Introduction</legend>
-        <p>
-          Bienvenue sur notre site dédié à la gestion des outils informatiques au sein de notre entreprise.<br/>
-          Nous sommes ravis de vous présenter notre nouvelle application web, <br/>
-          conçue pour optimiser la gestion des ressources informatiques. <br/>
-          Grâce à cette plateforme, vous pourrez facilement suivre l'affectation de matériel aux employés, <br/>
-          générer des documents administratifs tels que des décharges en PDF, <br/>
-          et accéder à une interface conviviale pour gérer toutes les informations pertinentes. <br/> 
-          Notre objectif est de simplifier vos tâches quotidiennes, <br/>
-          d'améliorer la communication au sein du service informatique et de garantir une utilisation efficace de nos outils. <br/>
-          Explorez notre site pour découvrir comment cette solution peut transformer votre expérience au travail ! <br/>
-        </p>
-      </fieldset>
-
-      <h3 class="mb-3">Enregistrement des Outils</h3>
-      
-      <form action="submit-form.php" method="post" class="mb-4" onsubmit="return validateForm();">
+    <title>Ajouter un Outil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 class="mt-4">Ajouter un Outil</h1>
+    <form action="index.php" method="post">
         <div class="mb-3">
-          <label for="id" class="form-label">Identifiant unique :</label>
-          <input type="text" class="form-control" id="id" name="id" required>
-          <div class="text-danger" id="id-error"></div>
+            <label for="type" class="form-label">Type :</label>
+            <input type="text" class="form-control" id="type" name="type" required>
         </div>
-        
         <div class="mb-3">
-          <label for="type" class="form-label">Type :</label>
-          <select id="type" name="type" class="form-select" required>
-            <option value="">Sélectionnez un type</option>
-            <option value="laptop">Laptop</option>
-            <option value="desktop">Desktop</option>
-            <option value="autre">Autre</option>
-          </select>
-          <div class="text-danger" id="type-error"></div>
+            <label for="marque" class="form-label">Marque :</label>
+            <input type="text" class="form-control" id="marque" name="marque" required>
         </div>
-        
         <div class="mb-3">
-          <label for="marque" class="form-label">Marque :</label>
-          <input type="text" class="form-control" id="marque" name="marque" required>
-          <div class="text-danger" id="marque-error"></div>
+            <label for="modele" class="form-label">Modèle :</label>
+            <input type="text" class="form-control" id="modele" name="modele" required>
         </div>
-        
         <div class="mb-3">
-          <label for="modele" class="form-label">Modèle :</label>
-          <input type="text" class="form-control" id="modele" name="modele" required>
-          <div class="text-danger" id="modele-error"></div>
+            <label for="num_serie" class="form-label">Numéro de série :</label>
+            <input type="text" class="form-control" id="num_serie" name="num_serie" required>
         </div>
-        
         <div class="mb-3">
-          <label for="num_serie" class="form-label">Numéro de série :</label>
-          <input type="text" class="form-control" id="num_serie" name="num_serie" required>
-          <div class="text-danger" id="num_serie-error"></div>
+            <label for="date_achat" class="form-label">Date d'achat :</label>
+            <input type="date" class="form-control" id="date_achat" name="date_achat" required>
         </div>
-        
         <div class="mb-3">
-          <label for="date_achat" class="form-label">Date d'achat :</label>
-          <input type="date" class="form-control" id="date_achat" name="date_achat" required>
-          <div class="text-danger" id="date_achat-error"></div>
+            <label for="etat" class="form-label">État :</label>
+            <select id="etat" name="etat" class="form-select" required>
+                <option value="">Sélectionnez un état</option>
+                <option value="neuf">Neuf</option>
+                <option value="usage">Usagé</option>
+                <option value="reparation">En réparation</option>
+                <option value="autre">Autre</option>
+            </select>
         </div>
-        
         <div class="mb-3">
-          <label for="etat" class="form-label">État :</label>
-          <select id="etat" name="etat" class="form-select" required>
-            <option value="">Sélectionnez un état</option>
-            <option value="neuf">Neuf</option>
-            <option value="usage">Usagé</option>
-            <option value="reparation">En réparation</option>
-            <option value="autre">Autre</option>
-          </select>
-          <div class="text-danger" id="etat-error"></div>
+            <label for="localisation" class="form-label">Localisation actuelle :</label>
+            <input type="text" class="form-control" id="localisation" name="localisation" required>
         </div>
-
-        <div class="mb-3">
-          <label for="localisation" class="form-label">Localisation actuelle :</label>
-          <input type="text" class="form-control" id="localisation" name="localisation" required>
-          <div class="text-danger" id="localisation-error"></div>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-      </form>
-
-      <footer class="mt-4">
-        <h5>Contact</h5>
-        <p>Numéro : +213</p>
-        <p>Email : </p>
-        <p>Adresse : </p>
-      </footer>
-    </div>
-  </body>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+</div>
+</body>
 </html>
 
