@@ -1,6 +1,4 @@
 <?php
-
-
 // Informations de connexion à la base de données
 $servername = "localhost";
 $username = "root";
@@ -35,20 +33,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Exécuter la requête
         if ($stmt->execute()) {
-            echo "L'outil a été ajouté avec succès.";
+            // Redirection vers la liste des outils après l'ajout
+            header("Location: index2.php");
+            exit();
         } else {
-            echo "Erreur lors de l'exécution de la requête : " . $stmt->error;
+            echo "<div class='alert alert-danger mt-3'>Erreur lors de l'exécution de la requête : " . $stmt->error . "</div>";
         }
         
         // Fermer la déclaration
         $stmt->close();
     } else {
-        echo "Erreur lors de la préparation de la requête : " . $conn->error;
+        echo "<div class='alert alert-danger mt-3'>Erreur lors de la préparation de la requête : " . $conn->error . "</div>";
     }
     
     // Fermer la connexion
     $conn->close();
 } else {
-    echo "Méthode de requête non valide.";
+    echo "<div class='alert alert-warning mt-3'>Aucune donnée reçue.</div>";
 }
 ?>
